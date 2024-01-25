@@ -1,1 +1,6 @@
 opencv-python
+face-recognition
+numpy
+pysqlite
+libsqlcipher-dev
+pysqlcipher3
