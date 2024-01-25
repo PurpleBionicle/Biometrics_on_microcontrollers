@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.15)
+project(ProjectName)
+
+# Установите переменную, указывающую на интерпретатор Python
+set(PYTHON_EXECUTABLE "~/python")
+
+# Настройте цель для запуска вашего Python скрипта
+add_custom_target(RunPythonScript
+    COMMAND ${PYTHON_EXECUTABLE} ~/biometrics.py auth
+)
+
+# Для установки зависимостей, вы можете использовать файл requirements.txt
+add_custom_command(TARGET RunPythonScript PRE_BUILD
+    COMMAND ${PYTHON_EXECUTABLE} -m pip install -r ${CMAKE_SOURCE_DIR}/requirements.txt
+)

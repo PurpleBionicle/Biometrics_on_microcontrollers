@@ -1,0 +1,2 @@
+python ./biometrics.py registration
+

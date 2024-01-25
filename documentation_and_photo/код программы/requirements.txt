@@ -1,0 +1,6 @@
+SQLite3
+opencv-python
+face-recognition
+numpy
+pysqlcipher3
+PyInstaller
