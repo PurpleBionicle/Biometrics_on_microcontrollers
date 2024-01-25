@@ -114,9 +114,6 @@ def make_video(id_camera, name):
     "то откуда читаем видео (камера или видеофайлы), в нашем случае камера"
     "индекс камеры 0, так как она одна (встроенная)"
     camera = cv2.VideoCapture(id_camera)
-    # fps = camera.get(cv2.CAP_PROP_FPS)  # Получаем кадры в секунду
-    # print(fps)
-    # camera = cv2.VideoCapture('rtsp://admin:admin1@192.168.1.2/1')
     "переменные времени и размеров окна"
     start_time = datetime.datetime.now()
     delta_time_seconds = 0
@@ -273,23 +270,6 @@ def do_authentification(id_camera):
                 "Для демонстрации результата на кадре"
                 # cv2.imshow('auth', frame)
                 "Далее произведем сравнение с датасетом"
-                # for (i, image) in enumerate(images):
-                #     if cv2.waitKey(1) == ord('q'):
-                #         break
-                #     # "получение лица из фото"
-                #     # face_img = face_recognition.load_image_file(f"dataset/{image}")
-                #     # try:
-                #     #     "его декодирование"
-                #     #     face_enc = face_recognition.face_encodings(face_img)[0]
-                #     "Сравнение из видео и датасета"
-                #     result = face_recognition.compare_faces([face_enc], faces_encodings[0])
-                #     if result[0]:
-                #         liveness = check_liveness(open_eyes_count, all_eyes_count)
-                #         name = image[:image.index('_')]
-                #         return_values = (True, name, liveness) if liveness else (True, 'photo', liveness)
-                #         return return_values
-                #     # except:
-                #     #     pass
                 result,name = compare_face_with_db(faces_encodings[0])
                 if result[0]:
                     liveness = check_liveness(open_eyes_count, all_eyes_count)
